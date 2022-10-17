@@ -1,6 +1,21 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+function randomInt(min, max) {
+  if (!max) {
+    max = min
+    min - 0
+  }
+  
+  var rand = Math.random()
+  return Math.floor(min*(1 - rand) + rand*max)
+}
+
+function getRandomItem(list) {
+  return list[randomInt(list.length)]
+}
+  
+
 function generatePassword() {
 
   var userInput = window.prompt("How long do you want you password to be?")
@@ -10,13 +25,52 @@ function generatePassword() {
   if (isNaN(passwordLength)) {
     window.alert("That is not a number.")
     return
-  } 
-  
+  }
+
   if (passwordLength < 8 || passwordLength > 128) {
-    window.alert("Password length mus be between 8 and 128 characters")
+    window.alert("Password length must be between 8 and 128 characters")
     return
   }
 
+  var userWantsNumbers = window.confirm("Would you like numbers in you password?")
+  var userWantSymbols = window.confirm("Would you like symbols in you password?")
+  var userWantsLowercase = window.confirm("Would you like lowercase letters in you password?")
+  var userWantsUppercase = window.confirm("Would you like uppercase letters in you password?")
+
+  var numberList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+  var symbolList = ["!", "@", "$", "#", "%", "&"]
+  var lowercaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  var uppercaseList = []
+
+  var userOptions = []
+
+  for (var i = 0; i < lowercaseList.length; i++) {
+    uppercaseList[i] = lowercaseList[i].toUpperCase()
+  }
+
+  if (userWantsNumbers === true) {
+    userOptions.push(numberList)
+  }
+
+  if (userWantSymbols === true) {
+    userOptions.push(symbolList)
+  }
+
+  if (userWantsLowercase === true) {
+    userOptions.push(lowercaseList)
+  }
+
+  if (userWantsUppercase === true) {
+    userOptions.push(uppercaseList)
+  }
+
+  var generatedPassword = ""
+
+  for (var i = 0; i < passwordLength; i++) {
+    var randomList = getRandomItem(userOptions)
+    var randomChar = getRandomItem(randomList)
+    console.log(randomChar)
+  }
 
 }
 
