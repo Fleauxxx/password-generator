@@ -6,8 +6,10 @@
  
  ![Acceptance Criteria](https://user-images.githubusercontent.com/111618393/197108052-babd4612-e3d7-4ccc-8d25-d73d1ee39c06.png)
 
-
+## Mock Up
 The task was accomplished using for loops, functions and variables and a few other things.
+
+![My code screenshot](https://user-images.githubusercontent.com/111618393/197109277-4aab598d-74f4-4b61-bdbc-f7b2ef67f210.png)
 
 I added detailed comments so you can see what different pieces of my code accomplishes.
 
